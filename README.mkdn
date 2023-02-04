@@ -1,36 +1,32 @@
-LineageOS
+Pixel Crystal
 ===========
 
 Getting started
 ---------------
 
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
+For set-up a repo and building Pixel Crystal you need to establishing a build environment. More information in https://source.android.com/docs/setup/start/initializing?hl=pt-br 
 
-To initialize your local repository using the LineageOS trees, use a command like this:
+
+To initialize repo, use this commands:
+
 ```
 repo init -u https://github.com/LineageOS/android.git -b lineage-20.0
 ```
 Then to sync up:
 ```
-repo sync
+repo sync -j$(nproc --all) 
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
 
+For set-up a Shallow repo (this reduce amount of code sync, it's ideal for low networks or minimal disk space).
 
-Submitting patches
-------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
+```
+repo init --depth=1 -u https://github.com/Pixel-Crystal/android -b Pixel-Crystal
+```
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
+```
+repo sync -j$(nproc --all) 
+```
 
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
-
-
-Buildbot
---------
-
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
-
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
-
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+Thanks to:
+   LineageOS Project https://github.com/LineageOS.
+   Pixel Experience https://github.com/PixelExperience
